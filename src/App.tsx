@@ -205,7 +205,7 @@ function App() {
                 </Col>
             </PageSectionWrapper>
             <footer>
-                <PageSectionWrapper id={"footer"}>
+                <PageSectionWrapper variant={"dark"} id={"footer"}>
                     <Row className={"align-items-center"}>
                         <Col xs={12} md={8}>
                             <Navbar>
