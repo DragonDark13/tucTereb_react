@@ -70,7 +70,8 @@ header.navbar {
     background-size: cover;
 
 
-    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3));
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)),
+    url('./assets/img/bg.jpeg');
     filter: grayscale(100%);
     opacity: 0.3;
     background-attachment: initial;
