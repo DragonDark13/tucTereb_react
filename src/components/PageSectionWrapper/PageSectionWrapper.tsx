@@ -1,4 +1,5 @@
 import {ReactNode} from "react";
+import {Col, Container, Row} from "react-bootstrap";
 
 interface IPageSectionWrapper {
     children: ReactNode,
@@ -10,11 +11,19 @@ const PageSectionWrapper = ({children, id, variant="light"}: IPageSectionWrapper
     return (
         <section id={id ? id : ""}
                  className={"sb-section option-title-show-decoration-square "+ (variant==='light' ? "sb-section-opt-light " : "sb-section-opt-dark")}>
-            <div className="container">
-                <div className="row sb-row-opt-padding-bottom-large sb-row-opt-padding-top-large align-items-center">
-                    {children}
-                </div>
-            </div>
+            <Container>
+                <Row className={"sb-row-opt-padding-bottom-large sb-row-opt-padding-top-large align-items-center"}>
+                    <Col>
+                         {children}
+                    </Col>
+                </Row>
+
+            </Container>
+            {/*<div className="container">*/}
+            {/*    <div className="row sb-row-opt-padding-bottom-large sb-row-opt-padding-top-large align-items-center">*/}
+
+            {/*    </div>*/}
+            {/*</div>*/}
         </section>
     );
 };
