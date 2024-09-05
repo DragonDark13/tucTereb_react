@@ -157,7 +157,7 @@ function App() {
                 </Row>
 
             </PageSectionWrapper>
-            <PageSectionWrapper id={"contact"}>
+            <PageSectionWrapper id={"contacts"}>
                 <Col md={6}>
 
                     <div className="contact-full__location">

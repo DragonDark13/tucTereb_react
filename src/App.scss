@@ -125,6 +125,7 @@ header.navbar {
     text-decoration: none;
     z-index: 1;
     color: #fff;
+    cursor: pointer;
 
     & .hover_bl {
       display: block;
@@ -396,6 +397,7 @@ option-title-show-decoration-square.sb-section-opt-light .sb-section-title::befo
 }
 
 .stickyHeaderContainer {
+  overflow: hidden;
   position: absolute;
   left: 0;
   right: 0;
