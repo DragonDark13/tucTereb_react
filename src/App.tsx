@@ -7,14 +7,37 @@ import city from './assets/img/city.jpeg'
 import MyCardComponent from "./components/MyCardComponent/MyCardComponent";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Footer from "./components/Footer/Footer";
+import {useState} from "react";
+import React from 'react'
+
+
+const ourServicesArray = [
+    {
+        title: "Заклади тимчасового розміщення",
+        text: "Engage in hands-on cultural experiences that showcase local traditions.",
+        imageSrc: city,
+    }, {
+        title: "Ресторани, кафе та бари",
+        text: "Discover the breathtaking landscapes surrounding Ternopil on our nature excursions.",
+        imageSrc: city,
+    }, {
+        title: "Цікаві місця",
+        text: "Відкрийте для себе багату історію та культуру Теребовлі та громади.",
+        imageSrc: city,
+    }
+]
 
 
 function App() {
+    const [headerHeight, setHeaderHeight] = useState(0); // State to store the height
+
+
+    console.log(headerHeight);
 
     return (
-        <>
-            <Header/>
-            <section className="bg_section sb-section-opt-dark">
+        <React.Fragment>
+            <Header setHeaderHeight={setHeaderHeight}/>
+            <section style={{paddingTop: headerHeight}} className="bg_section sb-section-opt-dark">
                 <div className="image_block"></div>
                 <div className="container sb-container align-items-start justify-content-center flex-column">
                     <div
@@ -71,14 +94,21 @@ function App() {
                         <p className="fs-2">Індивідуальний досвід для кожного мандрівника</p>
                     </Col>
                 </Row>
-                <Row>
-                    <Col md={4}>
-                        <MyCardComponent/>
-                    </Col> <Col md={4}>
-                    <MyCardComponent/>
-                </Col> <Col md={4}>
-                    <MyCardComponent/>
-                </Col>
+                <Row className={"our_services_list"}>
+                    {ourServicesArray.map(({title, text,imageSrc},index) => (
+                        <Col key={index+title} md={4}>
+                            <MyCardComponent text={text} title={title} imageSrc={imageSrc}/>
+                        </Col>
+                    ))}
+                    {/*<Col md={4}>*/}
+                    {/*    <MyCardComponent/>*/}
+                    {/*</Col>*/}
+                    {/*<Col md={4}>*/}
+                    {/*    <MyCardComponent/>*/}
+                    {/*</Col>*/}
+                    {/*<Col md={4}>*/}
+                    {/*    <MyCardComponent/>*/}
+                    {/*</Col>*/}
                 </Row>
 
             </PageSectionWrapper>
@@ -215,7 +245,7 @@ function App() {
                 </Col>
             </PageSectionWrapper>
             <Footer/>
-        </>
+        </React.Fragment>
     )
 }
 
