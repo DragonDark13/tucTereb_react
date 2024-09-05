@@ -19,11 +19,6 @@ const PageSectionWrapper = ({children, id, variant="light"}: IPageSectionWrapper
                 </Row>
 
             </Container>
-            {/*<div className="container">*/}
-            {/*    <div className="row sb-row-opt-padding-bottom-large sb-row-opt-padding-top-large align-items-center">*/}
-
-            {/*    </div>*/}
-            {/*</div>*/}
         </section>
     );
 };

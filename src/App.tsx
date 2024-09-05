@@ -27,6 +27,22 @@ const ourServicesArray = [
     }
 ]
 
+const ourProdutsArray = [
+    {
+        title: "Екскурсії містом",
+        text: "This section is where you write a short description of your product.",
+        imageSrc: city,
+    }, {
+        title: "Велоекскурсії та оренда велосипедів",
+        text: "This section is where you write a short description of your product.",
+        imageSrc: city,
+    }, {
+        title: "Сувенірна продукція",
+        text: "This section is where you write a short description of your product.",
+        imageSrc: city,
+    }
+]
+
 
 function App() {
     const [headerHeight, setHeaderHeight] = useState(0); // State to store the height
@@ -95,20 +111,11 @@ function App() {
                     </Col>
                 </Row>
                 <Row className={"our_services_list"}>
-                    {ourServicesArray.map(({title, text,imageSrc},index) => (
-                        <Col key={index+title} md={4}>
+                    {ourServicesArray.map(({title, text, imageSrc}, index) => (
+                        <Col key={index + title} md={4}>
                             <MyCardComponent text={text} title={title} imageSrc={imageSrc}/>
                         </Col>
                     ))}
-                    {/*<Col md={4}>*/}
-                    {/*    <MyCardComponent/>*/}
-                    {/*</Col>*/}
-                    {/*<Col md={4}>*/}
-                    {/*    <MyCardComponent/>*/}
-                    {/*</Col>*/}
-                    {/*<Col md={4}>*/}
-                    {/*    <MyCardComponent/>*/}
-                    {/*</Col>*/}
                 </Row>
 
             </PageSectionWrapper>
@@ -119,14 +126,12 @@ function App() {
                         <p className="fs-2">Індивідуальний досвід для кожного мандрівника</p>
                     </Col>
                 </Row>
-                <Row>
-                    <Col md={4}>
-                        <MyCardComponent typeView={2}/>
-                    </Col> <Col md={4}>
-                    <MyCardComponent typeView={2}/>
-                </Col> <Col md={4}>
-                    <MyCardComponent typeView={2}/>
-                </Col>
+                <Row className={"our_services_list"}>
+                    {ourProdutsArray.map(({title, text, imageSrc}, index) => (
+                        <Col key={index + title} md={4}>
+                            <MyCardComponent typeView={2} text={text} title={title} imageSrc={imageSrc}/>
+                        </Col>
+                    ))}
                 </Row>
             </PageSectionWrapper>
             <PageSectionWrapper id={"image-carousel"}>
