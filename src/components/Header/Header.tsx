@@ -25,7 +25,8 @@ const Header = ({setHeaderHeight}: IHeader) => {
 
     return (
         <div className="stickyHeaderContainer" ref={headerRef}>
-            <Sticky stickyClassName={'header_sticky_state'}
+            <Sticky
+                stickyClassName={'header_sticky_state'}
                     boundaryElement=".block"
                     hideOnBoundaryHit={false}>
                 <Navbar expand="lg"
