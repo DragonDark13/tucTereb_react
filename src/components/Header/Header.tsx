@@ -4,24 +4,24 @@ import Navbar from 'react-bootstrap/Navbar';
 import '../../App.scss';
 import {useEffect, useRef} from "react";
 import Sticky from 'react-sticky-el';
-import {Button} from "react-bootstrap";
 import {Link} from 'react-scroll';  // Import Link from react-scroll
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
 interface IHeader {
-    setHeaderHeight: (number) => void;
+    setHeaderHeight: (arg0: number) => void;
 }
 
 const Header = ({setHeaderHeight}: IHeader) => {
 
-    const headerRef = useRef(null); // Create ref for the stickyHeaderContainer
+    const headerRef = useRef<HTMLDivElement>(null); // Задаємо тип рефу
 
     useEffect(() => {
-        if (headerRef.current) {
-            setHeaderHeight(headerRef.current.offsetHeight); // Get height of the element
+        if (headerRef.current && headerRef.current.offsetHeight) {
+            console.log('Height of header:', headerRef.current.offsetHeight);
+            setHeaderHeight(headerRef.current.offsetHeight)
         }
-    }, []); // Empty dependency array means it runs once after the initial render
+    }, []);
 
     return (
         <div className="stickyHeaderContainer" ref={headerRef}>
@@ -49,14 +49,14 @@ const Header = ({setHeaderHeight}: IHeader) => {
                                 <Offcanvas.Body>
                                     <Nav className="justify-content-end flex-grow-1 pe-3 me-auto header_nav_menu">
                                         <Nav.Link as={Link} to="about" smooth={true} duration={500}>ПРО НАС
-                                        <span className={"hover_bl"}></span>
-                                    </Nav.Link>
-                                    <Nav.Link as={Link} to="services" smooth={true} duration={500}>ПОСЛУГИ
-                                        <span className={"hover_bl"}></span>
-                                    </Nav.Link>
-                                    <Button as={Link} to="contacts" smooth={true} duration={500}
-                                            className={"border-2 rounded-0"}
-                                            variant={"outline-secondary"}>КОНТАКТИ</Button>
+                                            <span className={"hover_bl"}></span>
+                                        </Nav.Link>
+                                        <Nav.Link as={Link} to="services" smooth={true} duration={500}>ПОСЛУГИ
+                                            <span className={"hover_bl"}></span>
+                                        </Nav.Link>
+                                        <Nav.Link as={Link} to="contacts" smooth={true} duration={500}
+                                                className={" btn btn-outline-secondary border-2 rounded-0"}
+                                                >КОНТАКТИ</Nav.Link>
                                     </Nav>
                                 </Offcanvas.Body>
                             </Navbar.Offcanvas>
